@@ -16,6 +16,8 @@ dataset_path = "hdfs://localhost:9000/datasets/spotify/"
 playlists_df = spark.read.json(dataset_path + 'playlist.json')
 tracks_df = spark.read.json(dataset_path + 'tracks.json')
 
+part1.songsDuration(sc, tracks_df)
+part1.nonOutliersSongDurations(sc, tracks_df)
 part2.run(sc, tracks_df, playlists_df)
 
 print("\n==================== Fim do script ====================\n")
