@@ -5,4 +5,9 @@
 # outrdd.saveAsTextFile("hdfs:/user/victorribeiro/hello-linecount-submit")
 
 def run(sc, dataset_path):
-    dataset = ""
+    rdd = sc.textFile(dataset_path + "tracks.json")
+    # rdd = sc.textFile(dataset_path + "playlists.json")
+
+    lines = rdd.count()
+    print(f"lines ====> {lines}")
+    

@@ -4,4 +4,4 @@ source /etc/profile.d/spark.sh
 spark-submit --num-executors 2 \
         --executor-cores 2 \
         --executor-memory 1024M \
-        spark-warmup.py
+        main.py
