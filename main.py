@@ -8,16 +8,15 @@ spark = SparkSession.builder \
     .appName("HelloLines") \
     .getOrCreate()
 sc = spark.sparkContext
+sc.setLogLevel("WARN")
 
-# rdd = sc.textFile("hdfs:/user/victorribeiro/hello.txt")
-# lines = rdd.count()
-# outrdd = sc.parallelize([lines])
-# # The following will fail if the output directory exists:
-# outrdd.saveAsTextFile("hdfs:/user/victorribeiro/hello-linecount-submit")
+print("==================== Iniciando script ====================\n")
 
 dataset_path = "hdfs://localhost:9000/datasets/spotify/"
+tracks_df = spark.read.json(dataset_path + 'tracks.json')
+playlists_df = spark.read.json(dataset_path + 'playlists.json')
 
 part2.run(sc, dataset_path)
 
-
+print("\n==================== Fim do script ====================\n")
 sc.stop()
