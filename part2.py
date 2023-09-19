@@ -22,4 +22,4 @@ def run(sc, tracks_df, playlists_df):
     plt.legend()
     plt.grid(True)
 
-    plt.savefig("./plot.png")
+    plt.savefig("./part2.png")

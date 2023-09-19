@@ -19,6 +19,7 @@ tracks_df = spark.read.json(dataset_path + 'tracks.json')
 part1.songsDuration(sc, tracks_df)
 part1.nonOutliersSongDurations(sc, tracks_df)
 part2.run(sc, tracks_df, playlists_df)
+part3.run(sc, tracks_df, playlists_df)
 
 print("\n==================== Fim do script ====================\n")
 sc.stop()
