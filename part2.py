@@ -12,9 +12,10 @@ def run(sc, tracks_df, playlists_df):
 
     for row in top_artists.collect():
         artist_name = row["artist_name"]
-        artist_data = joined_df.filter(joined_df["artist_name"] == artist_name).groupBy(year("modified_at").alias("year")).count().orderBy("year")
+        artist_data = joined_df.filter(joined_df["artist_name"] == artist_name).groupBy(year("modified_at").alias("year")).agg(countDistinct("pid").alias("count")).orderBy("year")
         artist_data_pd = artist_data.toPandas()
         plt.plot(artist_data_pd["year"], artist_data_pd["count"], label=artist_name)
+
 
     plt.xlabel('Year')
     plt.ylabel('Number of Playlists')
