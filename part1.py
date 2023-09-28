@@ -67,3 +67,5 @@ def nonOutliersSongDurations(sc, tracks_df):
 
     # Salva a tabela como um arquivo CSV
     pd_df.to_csv("./remaining_stats.csv", index=False)
+
+    return non_outliers_songs

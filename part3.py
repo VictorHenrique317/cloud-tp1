@@ -15,6 +15,8 @@ def run(sc, tracks_df, playlists_df):
 
     pdf = most_frequent_artists.toPandas()
 
+    plt.clf()
+
     pdf['prevalence'].hist(cumulative=True, density=1, bins=100)
     plt.xlabel('Artist Prevalence')
     plt.ylabel('CDF')
