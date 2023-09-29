@@ -22,7 +22,7 @@ Antes de executar o programa, certifique-se de que você possui os seguintes req
    chmod +x run.sh
 ## Execução do Programa
 
-Execute o script `run.sh` para iniciar a análise do dataset do Spotify utilizando o Apache Spark:
+Execute o script `run.sh` para iniciar a análise do dataset do Spotify utilizando o Spark:
 
 ```bash
 ./run.sh
